@@ -64,7 +64,7 @@ public final class TradeInstruction {
     final LocalDate settlementDate = LocalDate.parse(instructedSettlementDate, dateFormatter);
     final DayOfWeek dayOfWeek = settlementDate.getDayOfWeek();
 
-    final boolean isAEDorSAR = "AED".equalsIgnoreCase(currency) || "SAR".equalsIgnoreCase(currency);
+    final boolean isAEDorSAR = "AED".equals(currency) || "SAR".equals(currency);
 
     return switch (dayOfWeek) {
       case FRIDAY -> isAEDorSAR ? settlementDate.plusDays(2) : settlementDate;
